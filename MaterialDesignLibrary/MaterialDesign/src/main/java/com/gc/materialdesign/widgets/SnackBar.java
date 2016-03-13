@@ -196,6 +196,10 @@ public class SnackBar extends Dialog{
 		if(button != null)
 			button.setBackgroundColor(color);
 	}
+
+	public ButtonFlat getButtonFlat() {
+		return button;
+	}
 	
 	/**
 	 * This event start when snackbar dismish without push the button

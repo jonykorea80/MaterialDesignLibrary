@@ -19,6 +19,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.animation.BounceInterpolator;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
@@ -28,12 +29,14 @@ import android.widget.TextView;
 
 public class ButtonFloat extends Button{
 	
-	int sizeIcon = 24;
-	int sizeRadius = 28;
+	int sizeIcon = 64;
+	int sizeRadius = 32;
 	
 	
 	ImageView icon; // Icon of float button
 	Drawable drawableIcon;
+
+	TextView textView; // textView;
 	
 	public boolean isShow = false;
 	
@@ -46,7 +49,7 @@ public class ButtonFloat extends Button{
 		super(context, attrs);
 		setBackgroundResource(R.drawable.background_button_float);
 		setBackgroundColor(backgroundColor);
-		sizeRadius = 28;
+		sizeRadius = 32;
 		setDefaultProperties();
 		icon = new ImageView(context);
 		icon.setAdjustViewBounds(true);
@@ -57,7 +60,18 @@ public class ButtonFloat extends Button{
 		LayoutParams params = new LayoutParams(Utils.dpToPx(sizeIcon, getResources()),Utils.dpToPx(sizeIcon, getResources()));
 		params.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
 		icon.setLayoutParams(params);
-		addView(icon);		
+		addView(icon);
+
+		// textview
+		textView = new TextView(context);
+		textView.setLayoutParams(params);
+		textView.setTextSize(Utils.dpToPx(8, getResources()));
+		textView.setText("00");
+		textView.setTextColor(Color.parseColor("#ff00ff"));
+		textView.setGravity(Gravity.CENTER);
+		textView.setPadding(0,0,0,0);
+		textView.setBackgroundColor(Color.parseColor("#00ff00"));
+		//addView(textView);
 		
 	}
 	
@@ -177,7 +191,7 @@ public class ButtonFloat extends Button{
 
 	@Override
 	public TextView getTextView() {
-		return null;
+		return textView;
 	}
 	
 	public void setRippleColor(int rippleColor) {

@@ -27,7 +27,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="24dp"
-                android:text="ACTION" />
+                android:text="close" />
 
              <TextView
                 android:id="@+id/text"

@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,8 +18,10 @@ import android.widget.TextView;
 
 import com.gc.materialdesign.R;
 import com.gc.materialdesign.views.ButtonFlat;
+import com.gc.materialdesign.views.Slider;
+import com.gc.materialdesign.views.Switch;
 
-public class Timer extends Dialog{
+public class TimerBar extends Dialog{
 
 	String text;
 	float textSize = 14;//Roboto Regular 14sp
@@ -30,13 +33,24 @@ public class Timer extends Dialog{
 	int backgroundSnackBar = Color.parseColor("#333333");
 	int backgroundButton = Color.parseColor("#1E88E5");
 
+	Slider slider;
+	Switch switchView;
+
 	OnHideListener onHideListener;
-	// Timer
+	// TimerBar
 	private boolean mIndeterminate = false;
 	private int mTimer = 3 * 1000;
 
+	public Slider getSlider() {
+		return slider;
+	}
+
+	public Switch getSwitchView() {
+		return switchView;
+	}
+
 	// With action button
-	public Timer(Activity activity, String text, String buttonText, View.OnClickListener onClickListener) {
+	public TimerBar(Activity activity, String text, String buttonText, View.OnClickListener onClickListener) {
 		super(activity, android.R.style.Theme_Translucent);
 		this.activity = activity;
 		this.text = text;
@@ -45,7 +59,7 @@ public class Timer extends Dialog{
 	}
 
 	// Only text
-	public Timer(Activity activity, String text) {
+	public TimerBar(Activity activity, String text) {
 		super(activity, android.R.style.Theme_Translucent);
 		this.activity = activity;
 		this.text = text;
@@ -53,13 +67,16 @@ public class Timer extends Dialog{
 	
 	@Override
 	  protected void onCreate(Bundle savedInstanceState) {
-	    super.onCreate(savedInstanceState);
-	    requestWindowFeature(Window.FEATURE_NO_TITLE);
-	    setContentView(R.layout.snackbar);
-	    setCanceledOnTouchOutside(false);
-	    ((TextView)findViewById(R.id.text)).setText(text); 
-	    ((TextView)findViewById(R.id.text)).setTextSize(textSize); //set textSize
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		setContentView(R.layout.cz_timerbar);
+		setCanceledOnTouchOutside(false);
+	    //((TextView)findViewById(R.id.text)).setText(text);
+	    //((TextView)findViewById(R.id.text)).setTextSize(textSize); //set textSize
+		slider = (Slider) findViewById(R.id.slider_time);
+		slider.setEnabled(false);
 		button = (ButtonFlat) findViewById(R.id.buttonflat);
+		switchView = (Switch) findViewById(R.id.switchView);
 		if(text == null || onClickListener == null){
 			button.setVisibility(View.GONE);
 		}else{
@@ -75,6 +92,7 @@ public class Timer extends Dialog{
 				}
 			});
 		}
+
 		view = findViewById(R.id.snackbar);
 		view.setBackgroundColor(backgroundSnackBar);
 	}
@@ -142,7 +160,7 @@ public class Timer extends Dialog{
 			
 			@Override
 			public void onAnimationEnd(Animation animation) {
-				Timer.super.dismiss();
+				TimerBar.super.dismiss();
 			}
 		});
 		view.startAnimation(anim);

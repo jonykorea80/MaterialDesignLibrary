@@ -31,7 +31,7 @@ public class SnackBar extends Dialog{
 	int backgroundButton = Color.parseColor("#1E88E5");
 	
 	OnHideListener onHideListener;
-	// Timer
+	// TimerBar
 	private boolean mIndeterminate = false;
 	private int mTimer = 3 * 1000;
 	

@@ -20,6 +20,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.View;
 import android.view.animation.BounceInterpolator;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
@@ -65,16 +66,21 @@ public class ButtonFloat extends Button{
 		// textview
 		textView = new TextView(context);
 		textView.setLayoutParams(params);
-		textView.setTextSize(Utils.dpToPx(8, getResources()));
+		textView.setTextSize(Utils.dpToPx(6, getResources()));
 		textView.setText("00");
-		textView.setTextColor(Color.parseColor("#ff00ff"));
+		textView.setTextColor(Color.parseColor("#FFFFFF"));
 		textView.setGravity(Gravity.CENTER);
-		textView.setPadding(0,0,0,0);
-		textView.setBackgroundColor(Color.parseColor("#00ff00"));
-		//addView(textView);
+		textView.setPadding(0, 0, 0, 0);
+		textView.setVisibility(View.INVISIBLE);
+		//textView.setBackgroundColor(Color.parseColor("#00ff00"));
+		addView(textView);
 		
 	}
-	
+
+	public TextView getTimerTextView() {
+		return textView;
+	}
+
 	protected void setDefaultProperties(){
 		rippleSpeed = Utils.dpToPx(2, getResources());
 		rippleSize = Utils.dpToPx(5, getResources());

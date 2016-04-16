@@ -12,7 +12,7 @@ public class CustomView extends RelativeLayout{
 	final static String MATERIALDESIGNXML = "http://schemas.android.com/apk/res-auto";
 	final static String ANDROIDXML = "http://schemas.android.com/apk/res/android";
 	
-	final int disabledBackgroundColor = Color.parseColor("#E2E2E2");
+	final int disabledBackgroundColor = Color.parseColor("#B0B0B0");
 	int beforeBackground;
 	
 	// Indicate if user touched this view the last time

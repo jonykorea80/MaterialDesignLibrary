@@ -12,6 +12,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -89,6 +90,16 @@ public class Slider extends CustomView {
                     value * division + getHeight() / 2 - ball.getWidth() / 2);
             ball.changeBackground();
         }
+
+    }
+
+    boolean isEnable = false;
+    @Override
+    public void setEnabled(boolean enabled) {
+        super.setEnabled(enabled);
+
+        isEnable = enabled;
+        ball.changeBackground();
 
     }
 
@@ -202,7 +213,7 @@ public class Slider extends CustomView {
 
         Paint paint = new Paint();
 
-        if (value == min) {
+        if (value == min || !isEnable) {
             // Crop line to transparent effect
 
             if (bitmap == null) {
@@ -314,7 +325,10 @@ public class Slider extends CustomView {
         }
 
         public void changeBackground() {
-            if (value != min) {
+
+            if (!isEnable) {
+                setBackgroundResource(R.drawable.background_switch_ball_uncheck);
+            } else if (value != min) {
                 setBackgroundResource(R.drawable.background_checkbox);
                 LayerDrawable layer = (LayerDrawable) getBackground();
                 GradientDrawable shape = (GradientDrawable) layer

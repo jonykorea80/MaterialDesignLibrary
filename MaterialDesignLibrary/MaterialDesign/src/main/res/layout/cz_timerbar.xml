@@ -26,8 +26,22 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_alignTop="@+id/layout_timer"
+                android:background="#ec407a"
                 android:layout_alignBottom="@+id/layout_timer"
                 android:text="close" />
+
+
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:layout_alignTop="@+id/layout_timer"
+                android:layout_alignBottom="@+id/layout_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/timerText"
+                android:gravity="center"
+                android:text=""
+                android:textColor="#FFF"
+                android:textSize="16dp" />
 
 
             <LinearLayout
@@ -50,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:background="#1E88E5"
+                    android:background="#ec407a"
                     materialdesign:check="false" />
 
                 <TextView
@@ -79,7 +93,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="0"
-                    android:textColor="#FFF"
+                    android:textColor="#80ffffff"
                     android:textSize="12dp" />
 
                 <TextView
@@ -88,7 +102,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="10"
-                    android:textColor="#FFF"
+                    android:textColor="#80ffffff"
                     android:textSize="12dp" />
 
 
@@ -98,7 +112,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="20"
-                    android:textColor="#FFF"
+                    android:textColor="#80ffffff"
                     android:textSize="12dp" />
 
                 <TextView
@@ -107,7 +121,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="30"
-                    android:textColor="#FFF"
+                    android:textColor="#80ffffff"
                     android:textSize="12dp" />
 
                 <TextView
@@ -116,7 +130,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="40"
-                    android:textColor="#FFF"
+                    android:textColor="#80ffffff"
                     android:textSize="12dp" />
 
                 <TextView
@@ -125,7 +139,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="50"
-                    android:textColor="#FFF"
+                    android:textColor="#80ffffff"
                     android:textSize="12dp" />
 
                 <TextView
@@ -134,7 +148,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="60"
-                    android:textColor="#FFF"
+                    android:textColor="#80ffffff"
                     android:textSize="12dp" />
 
 
@@ -145,7 +159,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@id/text"
-                android:background="#1E88E5"
+                android:background="#ec407a"
                 materialdesign:max="60"
                 materialdesign:min="0"
                 materialdesign:showNumberIndicator="true" />

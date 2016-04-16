@@ -35,6 +35,7 @@ public class TimerBar extends Dialog{
 
 	Slider slider;
 	Switch switchView;
+	TextView timeView;
 
 	OnHideListener onHideListener;
 	// TimerBar
@@ -77,6 +78,7 @@ public class TimerBar extends Dialog{
 		slider.setEnabled(false);
 		button = (ButtonFlat) findViewById(R.id.buttonflat);
 		switchView = (Switch) findViewById(R.id.switchView);
+		timeView = (TextView) findViewById(R.id.timerText);
 		if(text == null || onClickListener == null){
 			button.setVisibility(View.GONE);
 		}else{
@@ -218,6 +220,8 @@ public class TimerBar extends Dialog{
 	public ButtonFlat getButtonFlat() {
 		return button;
 	}
+
+	public TextView getTimeView() {return timeView;}
 	
 	/**
 	 * This event start when snackbar dismish without push the button
